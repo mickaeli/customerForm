@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
+
 import './App.css'
 
 import SwitchLanguage from './SwitchLanguage'
@@ -17,6 +19,8 @@ const STEPS = {
   contactability: 2
 };
 
+const ENDPOINT = 'http://localhost:5000';
+
 class App extends Component {
 
   constructor(props) {
@@ -26,7 +30,7 @@ class App extends Component {
       language: 'fr',
       currStep: STEPS.personal,
       customer: {
-        firstname: 'mickael',
+        firstname: '',
         lastname: '',
         gender: '',
         country: '',
@@ -36,12 +40,25 @@ class App extends Component {
         phone: '',
         optin: true
       },
-      countries: ['France', 'Israel'],
+      countries: [],
       errors: {},
-      isValidForm: true,
-      showModal: false
+      isValidForm: false
     }
   }
+
+  componentDidMount() {
+
+    axios.get(`${ENDPOINT}/countries`)
+      .then(res => {
+          this.setState({
+            countries: res.data.countries
+          })
+      })
+      .catch(err => {
+        console.log("Get countries error: ", err);
+      });
+  }
+  
 
   handleChange = event => {
     const field = event.target.name;
@@ -90,9 +107,20 @@ class App extends Component {
 
     if (payload.success) {
       this.setState({
-        errors: {},
-        validForm: true
+        errors: {}
       });
+
+      axios.post(`${ENDPOINT}/customer`, this.state.customer)
+        .then(res => {
+          if(res.data.status === 'OK') {
+            this.setState({
+              isValidForm: true
+            })
+          }
+        })
+        .catch(err => {
+          console.log("Post custumer error: ", err);
+        });
       
     } else {
       this.setState({

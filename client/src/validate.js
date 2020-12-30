@@ -60,7 +60,7 @@ export const validateContactForm = payload => {
     };
   }
 
-  if(!validatePhone(phone)) {
+  if(phone !== '' && !validatePhone(phone)) {
     isFormValid = false;
     errors.phone = {
       en: "Please provide a correct phone number",
