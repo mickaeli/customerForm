@@ -1,0 +1,26 @@
+.process-bar {
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  width: 12rem;
+  height: 2.5rem;
+  background-color: #949494;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar {
+  background-color: #949494;
+  width: 10rem;
+  height: 1px;
+  margin: 0 2px;
+}
+
+.active {
+  background-color: #6f21b7;
+}

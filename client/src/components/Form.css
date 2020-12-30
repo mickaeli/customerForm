@@ -1,0 +1,49 @@
+.form {
+  width: 300px;
+  margin: auto;
+  margin-top: 5rem;
+  align-items: center;
+}
+
+.form-element {
+  width: 250px;
+}
+
+.label {
+  font-size: 15px;
+  color: #5b5b5b;
+  margin: 1rem 0 .1rem 0;
+}
+
+.radio-buttons-label {
+  font-size: 15px;
+  margin: 1.5rem 0 .5rem 0;
+}
+
+.error {
+  font-size: 14px;
+  color: red;
+  margin: 0;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.form-btn {
+  width: 6rem;
+  height: 3rem;
+  margin-top: 2.5rem;
+  background-color: #397dce;
+  color: white;
+  border: none;
+}
+
+.countries {
+  height: 30px;
+}
+
+.checkbox-optin {
+  margin-top: 1rem;
+}
