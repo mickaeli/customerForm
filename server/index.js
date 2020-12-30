@@ -15,7 +15,7 @@ server.listen(5000, () => console.log(`Server has started.`));
 
 
 app.get('/countries', (req, res) => {
-  res.json({ countries: ['France', 'Israel'] });
+  res.json({ countries: ['France', 'Israel', 'Allemagne', 'Angleterre', 'Portugal'] });
 });
 
 app.post('/customer', (req, res) => {
